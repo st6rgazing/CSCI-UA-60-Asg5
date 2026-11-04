@@ -1,0 +1,91 @@
+--- Query 1 ---
+100
+This query finds the antibiotics item and returns their quantityOnHand.
+
+--- Query 2 ---
+Gene Lewin
+This query filters volunteers to those whose phone number does not begin with 2 using NOT LIKE and whose name does not end in Jones using NOT LIKE. 
+
+--- Query 3 ---
+George Brewer
+The JOINs connect the package types to their packages and items. LIKE '%bottle%' finds items with the word bottle in their description. DISTINCT prevents duplicate package types.
+
+--- Query 4 ---
+Prepare 100 food packages
+Take packages to the warehouse
+
+COUNT(DISTINCT volunteerId) counts the volunteers without counting the same volunteer twice. GROUP BY separates the results by status, and ORDER BY volunteers DESC sorts them descending order
+
+--- Query 5 ---
+food and water
+
+The JOINs connect package types to packages, package contents, and items. LIKE '%bottle%' finds items with the word 'bottle' anywhere in their description. DISTINCT makes sure each package type only appears once.
+
+--- Query 6 ---
+bottle of antibiotics
+bottle of aspirin
+flashlight
+pack of bandages
+
+LEFT JOIN keeps all items, even if they are not in package_contents. WHERE packageId IS NULL finds items that are not in any package.
+
+--- Query 7 ---
+Prepare 20 children's packages
+Prepare 100 water packages
+Prepare 5,000 packages
+
+The JOINs connect tasks to assignments and volunteers. LIKE '%NJ%' finds volunteers whose address contains NJ. DISTINCT prevents the same task from appearing more than once.
+
+--- Query 8 ---
+Joan Simmons
+Chris Jordan
+
+JOIN connects volunteers to their assignments. The WHERE conditions select assignments that started between January 1 and June 30, 2021. DISTINCT prevents duplicate volunteer names.
+--- Query 9 ---
+Julie White
+Gerry Banks
+
+The JOINs connect volunteers to assignments, tasks, packages, and items. LIKE '%spam%' finds items with the word spam in their description. DISTINCT prevents duplicate volunteer names.
+
+--- Query 10 ---
+Baby formula
+
+JOIN connects items to the packages they are in. WHERE multiplies itemQuantity by itemValue and only keeps items where the total equals 100.
+
+--- Query 11 ---
+open|4
+closed|3
+ongoing|2
+pending|1
+
+COUNT(DISTINCT volunteerId) counts each volunteer only once. GROUP BY separates the volunteers by task status, and ORDER BY volunteers DESC sorts the results from highest to lowest.
+
+
+--- Query 12 ---
+106|308.0
+
+OIN connects packages to tasks. SUM(packageWeight) adds the weights of the packages for each task. GROUP BY calculates the total for each task, ORDER BY sorts from heaviest to lightest, and LIMIT 1 returns only the heaviest task.
+
+--- Query 13 ---
+3
+
+JOIN connects tasks to their task types. WHERE taskTypeName != 'packing' excludes packing tasks, and COUNT(*) counts the remaining tasks.
+
+--- Query 14 ---
+can of spam
+dried fruit
+tent
+men's coat
+women's coat
+sleeping bag
+
+The JOINs connect items to packages, tasks, and assignments. GROUP BY groups the results by item, and HAVING COUNT(DISTINCT volunteerId) < 3 keeps items that were handled by fewer than 3 different volunteers.
+
+--- Query 15 ---
+6|150.0
+2|151.0
+4|350.0
+10|750.0
+5|1420.0
+
+The JOINs connect packages to their contents and items. SUM(itemValue * itemQuantity) calculates the total value of each package. GROUP BY groups the items by package, HAVING keeps packages worth more than 100, and ORDER BY sorts the values from lowest to highest.
