@@ -8,13 +8,14 @@ This query filters volunteers to those whose phone number does not begin with 2 
 
 --- Query 3 ---
 George Brewer
-The JOINs connect the package types to their packages and items. LIKE '%bottle%' finds items with the word bottle in their description. DISTINCT prevents duplicate package types.
+
+The JOINs connect volunteers to their assignments, tasks, and task types. WHERE taskTypeName = 'transporting' only keeps volunteers assigned to transporting tasks.
 
 --- Query 4 ---
 Prepare 100 food packages
 Take packages to the warehouse
 
-COUNT(DISTINCT volunteerId) counts the volunteers without counting the same volunteer twice. GROUP BY separates the results by status, and ORDER BY volunteers DESC sorts them descending order
+LEFT JOIN keeps all tasks, even if they do not have an assignment. WHERE volunteerId IS NULL finds tasks that have no volunteers assigned to them.
 
 --- Query 5 ---
 food and water
@@ -64,7 +65,7 @@ COUNT(DISTINCT volunteerId) counts each volunteer only once. GROUP BY separates 
 --- Query 12 ---
 106|308.0
 
-OIN connects packages to tasks. SUM(packageWeight) adds the weights of the packages for each task. GROUP BY calculates the total for each task, ORDER BY sorts from heaviest to lightest, and LIMIT 1 returns only the heaviest task.
+JOIN connect packages to tasks. SUM(packageWeight) adds the weights of the packages for each task. GROUP BY calculates the total for each task, ORDER BY sorts from heaviest to lightest, and LIMIT 1 returns only the heaviest task.
 
 --- Query 13 ---
 3
